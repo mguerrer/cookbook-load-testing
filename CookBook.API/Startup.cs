@@ -21,8 +21,8 @@ namespace CookBook.API
         {
             services.AddSingleton<ICookbookRepository, CookbookCosmosDbRepository>();
             services.Decorate<ICookbookRepository, CookbookRedisRepository>();
-
-            services.AddMvc();
+            services.AddMvc(options => options.EnableEndpointRouting = false);
+            //services.AddMvc();
         }
         
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
